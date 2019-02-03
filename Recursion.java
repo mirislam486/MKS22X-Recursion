@@ -22,17 +22,23 @@ public class Recursion{
      *fib(0) = 1; fib(1) = 1; fib(5) = 5
      *precondition: n is non-negative
      */
-    public static int fib(int n){
-      return 0;
+    public static int fib(int n){ //Idk how to make this a tail recursive yet
+      if(n != 0 && n != 1){
+        return fib(n-1) + fib(n-2);
+      }
+      return n;
     }
 
     /*As Per classwork*/
-    //public static ArrayList<Integer> makeAllSums(){
-
-    //}
+    public static ArrayList<Integer> makeAllSums(ArrayList<Integer> nums, int index){
+      ArrayList<Integer> sums = new ArrayList<Integer>();
+      if(nums.length() > 0){
+        return nums;
+      }
+    }
 
     public static void main(String[] args) {
-	     System.out.println(sqrt(100, 0.001));
+	     System.out.println(sqrt(100, 0.001)); //currently returns a stack Overflow
 }
 
 }
