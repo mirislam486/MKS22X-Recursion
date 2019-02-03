@@ -30,10 +30,9 @@ public class Recursion{
     }
 
     /*As Per classwork*/
-    public static ArrayList<Integer> makeAllSums(ArrayList<Integer> nums, int index){
-      ArrayList<Integer> sums = new ArrayList<Integer>();
-      if(nums.length() > 0){
-        return nums;
+    public static ArrayList<Integer> makeAllSums(ArrayList<Integer> nums,ArrayList<Integer> sums, int index){
+      if(nums.length() > 0 && sums.length() < (nums.length) ^2){
+        return makeAllSums(nums, sums.add(nums[index] + nums[index + 1]))
       }
     }
 
