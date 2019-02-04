@@ -21,7 +21,18 @@ public class Recursion{
      *fib(0) = 1; fib(1) = 1; fib(5) = 5
      *precondition: n is non-negative
      */
-    public static int fib(int n){ //Idk how to make this a tail recursive yet
+    public static int fibhelper(int end, int prev, int current){
+      if(end == 0){
+        return prev;
+      } else if(end == 1){
+        return current;
+      }else{
+        return fibhelper(end - 1 , current, current + prev);
+      }
+    }
+
+
+    public static int fib(int n){
       if(n != 0 && n != 1){
         return fib(n-1) + fib(n-2);
       }
@@ -37,7 +48,7 @@ public class Recursion{
 
     public static void main(String[] args) {
 	     System.out.println(sqrt(100, 0.001, 1)); //currently returns a stack Overflow
-       System.out.println(fib(5));
+       System.out.println(fibhelper(5,0,1));
 }
 
 }
