@@ -7,16 +7,15 @@ public class Recursion{
      *precondition: n is non-negative
 
     */
-    public static double sqrt(double n, double tolerance){
-      if (n > 0){
-        double guess = ( n / 1 + 1) / 2;
-        while(guess > ((n*n)*tolerance)){
-          guess = sqrt((( n / guess + guess) / 2), tolerance);
+    public static double sqrt(double n, double tolerance, double guess){
+      if ((guess * guess)/n > n * tolerance){
+        //double guess = ( n / 1 + 1) / 2;
+        //while(guess > ((n*n)*tolerance)){
+          return sqrt(n, tolerance, (( n / guess + guess) / 2));
         }
-        return guess;
-      }
-      return 0;
+        return 0;
     }
+
 
     /*Recursively find the n'th fibbonaci number in linear time
      *fib(0) = 1; fib(1) = 1; fib(5) = 5
@@ -30,14 +29,15 @@ public class Recursion{
     }
 
     /*As Per classwork*/
-    public static ArrayList<Integer> makeAllSums(ArrayList<Integer> nums,ArrayList<Integer> sums, int index){
-      if(nums.length() > 0 && sums.length() < (nums.length) ^2){
-        return makeAllSums(nums, sums.add(nums[index] + nums[index + 1]))
-      }
-    }
+    //public static ArrayList<Integer> makeAllSums(ArrayList<Integer> nums,ArrayList<Integer> sums, int index){
+    //  if(nums.length() > 0 && sums.length() < (nums.length) ^2){
+    //    return makeAllSums(nums, sums.add(nums[index] + nums[index + 1]))
+    //  }
+  //  }
 
     public static void main(String[] args) {
-	     System.out.println(sqrt(100, 0.001)); //currently returns a stack Overflow
+	     System.out.println(sqrt(100, 0.001, 1)); //currently returns a stack Overflow
+       System.out.println(fib(5));
 }
 
 }
