@@ -1,5 +1,5 @@
 //import java.util.*;
-public class Recursion{
+public class recursion{
     /*You may write additional private methods */
 
     /*Recursively find the sqrt using Newton's approximation
@@ -40,14 +40,23 @@ public class Recursion{
     }
 
     /*As Per classwork*/
-    //public static ArrayList<Integer> makeAllSums(ArrayList<Integer> nums,ArrayList<Integer> sums, int index){
-    //  if(nums.length() > 0 && sums.length() < (nums.length) ^2){
-    //    return makeAllSums(nums, sums.add(nums[index] + nums[index + 1]))
+    //public static ArrayList<String> makeAllSums(int index, ArrayList<Integer> nums, ArrayList<String> sums){
+        //if(index < nums.length){
+        //  return groupSum(index + 1, nums, sums.add(nums[index] + "")) || groupSum(index + 1, nums, sums.add(nums[index] + ""));
+      //  }
+      //  return sums;
     //  }
-  //  }
+
+
+    public static boolean canMakeSum(int index, int[] ary, int targetSum){
+      if(index < ary.length){
+        return canMakeSum(index + 1, ary, targetSum - ary[index]) || canMakeSum(index + 1, ary, targetSum);
+      }
+      return (targetSum == 0);
+    }
 
     public static void main(String[] args) {
-	     System.out.println(sqrt(100, 0.001, 1)); //currently returns a stack Overflow
+	     System.out.println(sqrt(100, 0.001, 1));
        System.out.println(fibhelper(5,0,1));
 }
 
